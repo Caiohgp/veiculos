@@ -3,12 +3,11 @@ package br.com.altimus.crudveiculos.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
-@Service
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,6 +16,7 @@ public class Veiculo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String nome;
     private LocalDate dataDeCadastro;
     private String placa;
     private String renavam;
