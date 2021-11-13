@@ -1,7 +1,6 @@
 package br.com.altimus.crudveiculos.controller;
 
 import br.com.altimus.crudveiculos.domain.Modelo;
-import br.com.altimus.crudveiculos.domain.Veiculo;
 import br.com.altimus.crudveiculos.service.ModeloService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
