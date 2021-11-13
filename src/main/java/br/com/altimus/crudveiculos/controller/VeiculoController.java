@@ -2,6 +2,7 @@ package br.com.altimus.crudveiculos.controller;
 
 import br.com.altimus.crudveiculos.domain.Veiculo;
 import br.com.altimus.crudveiculos.schema.request.VeiculoRequest;
+import br.com.altimus.crudveiculos.schema.response.VeiculoResponse;
 import br.com.altimus.crudveiculos.service.VeiculoService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -23,7 +24,7 @@ public class VeiculoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Veiculo> findById(@PathVariable Long id){
+    public ResponseEntity<VeiculoResponse> findById(@PathVariable Long id){
         return ResponseEntity.ok(veiculoService.findById(id));
     }
 
