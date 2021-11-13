@@ -21,11 +21,15 @@ public class OpcionalService {
         return opcionalRepository.findById(id).get();
     }
 
+    public List<Opcional> findByIdList(List<Long> id){
+        return opcionalRepository.findAllById(id);
+    }
+
     public Opcional save(Opcional opcional){
         return opcionalRepository.save(opcional);
     }
 
-    public Opcional replace(Opcional opcional,Long id){
+    public Opcional replace(Opcional opcional, Long id){
         Optional<Opcional> opcionalToBeReplaced = Optional.ofNullable(findById(id));
         if (opcionalToBeReplaced.isPresent()){
             opcionalToBeReplaced.get().setNome(opcional.getNome());

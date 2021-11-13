@@ -1,6 +1,7 @@
 package br.com.altimus.crudveiculos.controller;
 
 import br.com.altimus.crudveiculos.domain.Veiculo;
+import br.com.altimus.crudveiculos.schema.request.VeiculoRequest;
 import br.com.altimus.crudveiculos.service.VeiculoService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -32,13 +33,13 @@ public class VeiculoController {
     }
 
     @PostMapping
-    public ResponseEntity<Veiculo> save(@RequestBody Veiculo veiculo){
-        return ResponseEntity.ok(veiculoService.save(veiculo));
+    public ResponseEntity<Veiculo> save(@RequestBody VeiculoRequest veiculoRequest){
+        return ResponseEntity.ok(veiculoService.save(veiculoRequest));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Veiculo> replace(@RequestBody Veiculo veiculo, @PathVariable Long id){
-        return new ResponseEntity(veiculoService.replace(veiculo,id),HttpStatus.NO_CONTENT);
+    public ResponseEntity<Veiculo> replace(@RequestBody VeiculoRequest veiculoRequest, @PathVariable Long id){
+        return new ResponseEntity(veiculoService.replace(veiculoRequest,id),HttpStatus.NO_CONTENT);
     }
 
     @DeleteMapping("/{id}")

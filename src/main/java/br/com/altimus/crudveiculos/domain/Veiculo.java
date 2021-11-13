@@ -6,6 +6,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Data
@@ -17,13 +19,13 @@ public class Veiculo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
-    private LocalDate dataDeCadastro;
+    private LocalDateTime dataDeCadastro;
     private String placa;
     private String renavam;
     private Double valor;
     @OneToOne(cascade = CascadeType.ALL)
     private Modelo modelo;
-    @OneToOne(cascade = CascadeType.ALL)
-    private Opcional opcional;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Opcional> opcional;
 
 }
