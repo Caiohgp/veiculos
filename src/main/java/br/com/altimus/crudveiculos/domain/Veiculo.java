@@ -3,12 +3,13 @@ package br.com.altimus.crudveiculos.domain;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 
-@Service
+@Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,13 +18,14 @@ public class Veiculo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private LocalDate dataDeCadastro;
+    private String nome;
+    private LocalDateTime dataDeCadastro;
     private String placa;
     private String renavam;
     private Double valor;
     @OneToOne(cascade = CascadeType.ALL)
     private Modelo modelo;
-    @OneToOne(cascade = CascadeType.ALL)
-    private Opcional opcional;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private List<Opcional> opcional;
 
 }
