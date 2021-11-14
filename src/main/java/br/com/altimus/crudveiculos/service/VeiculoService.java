@@ -8,6 +8,8 @@ import br.com.altimus.crudveiculos.schema.response.ModeloResponse;
 import br.com.altimus.crudveiculos.schema.response.OpcionalResponse;
 import br.com.altimus.crudveiculos.schema.response.VeiculoResponse;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -22,8 +24,8 @@ public class VeiculoService {
     private final ModeloService modeloService;
     private final OpcionalService opcionalService;
 
-    public List<Veiculo> getAll(){
-        return veiculoRepository.findAll();
+    public Page<Veiculo> findAll(Pageable pageable){
+        return veiculoRepository.findAll(pageable);
     }
 
     public VeiculoResponse findById(Long id){

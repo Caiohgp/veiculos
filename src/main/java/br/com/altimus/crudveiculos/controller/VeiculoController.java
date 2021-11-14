@@ -5,6 +5,8 @@ import br.com.altimus.crudveiculos.schema.request.VeiculoRequest;
 import br.com.altimus.crudveiculos.schema.response.VeiculoResponse;
 import br.com.altimus.crudveiculos.service.VeiculoService;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,8 +21,8 @@ public class VeiculoController {
     private final VeiculoService veiculoService;
 
     @GetMapping
-    public ResponseEntity<List<Veiculo>> getAll(){
-        return ResponseEntity.ok(veiculoService.getAll());
+    public ResponseEntity<Page<Veiculo>> findAll(Pageable pageable){
+        return ResponseEntity.ok(veiculoService.findAll(pageable));
     }
 
     @GetMapping("/{id}")
