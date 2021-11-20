@@ -14,7 +14,7 @@
 	<name>crud-veiculos</name>
 	<description>Criação de CRUD para cadastro veículos para a Altimus</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>9</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
