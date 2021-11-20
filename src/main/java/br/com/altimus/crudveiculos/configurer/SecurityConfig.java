@@ -25,31 +25,31 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-//        http.csrf().disable()
-//                .authorizeRequests()
-//                .anyRequest()
-//                .authenticated()
-//                .and()
-//                .formLogin()
-//                .and()
-//                .httpBasic();
+        http.csrf().disable()
+                .authorizeRequests()
+                .anyRequest()
+                .authenticated()
+                .and()
+                .formLogin()
+                .and()
+                .httpBasic();
          http.cors();
 
     }
 
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-//        log.info("Password encoded {}", passwordEncoder.encode("123456"));
-//        auth.inMemoryAuthentication()
-//                .withUser("admin")
-//                .password(passwordEncoder.encode("123456"))
-//                .roles("USER", "ADMIN")
-//                .and()
-//                .withUser("user")
-//                .password(passwordEncoder.encode("123456"))
-//                .roles("USER");
-//    }
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
+        log.info("Password encoded {}", passwordEncoder.encode("123456"));
+        auth.inMemoryAuthentication()
+                .withUser("admin")
+                .password(passwordEncoder.encode("123456"))
+                .roles("USER", "ADMIN")
+                .and()
+                .withUser("user")
+                .password(passwordEncoder.encode("123456"))
+                .roles("USER");
+    }
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {

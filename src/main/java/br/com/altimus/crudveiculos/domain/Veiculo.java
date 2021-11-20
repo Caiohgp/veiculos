@@ -23,9 +23,9 @@ public class Veiculo {
     private String placa;
     private String renavam;
     private Double valor;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.PERSIST)
     private Modelo modelo;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.PERSIST)
     private List<Opcional> opcional;
 
 }
